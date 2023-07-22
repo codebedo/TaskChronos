@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/sunriseback"
+    tools:context=".HomePage">
+
+    <TextView
+        android:id="@+id/welcome_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Welcome to My App"
+        android:textSize="24sp"
+        android:textColor="@color/white"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp" />
+
+    <Button
+        android:id="@+id/todo_list_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/welcome_text"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="161dp"
+        android:layout_marginTop="120dp"
+        android:layout_marginEnd="137dp"
+        android:background="@drawable/background"
+        android:text="To-Do List"
+        android:textAllCaps="false"
+        android:textColor="@color/white" />
+
+    <Button
+        android:id="@+id/counter_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/todo_list_button"
+        android:layout_alignEnd="@+id/todo_list_button"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="118dp"
+        android:layout_marginTop="301dp"
+        android:layout_marginEnd="-102dp"
+        android:background="@drawable/background"
+        android:text="Counter"
+        android:textAllCaps="false"
+        android:textColor="@color/white" />
+
+</RelativeLayout>
