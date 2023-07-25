@@ -3,23 +3,31 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="16dp"
-    android:background="#D2E1ED"
+    android:background="@drawable/counterback2"
     tools:context=".FocusCounter">
+
 
     <TextView
         android:id="@+id/counter_text_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:background="@drawable/circle_shape"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="83dp"
+        android:layout_marginTop="205dp"
+        android:layout_marginEnd="83dp"
         android:text="00:00"
-        android:textSize="90sp" />
+        android:textColor="@color/white"
+        android:textSize="75sp" />
 
     <Button
         android:id="@+id/start_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Başla"
+        android:backgroundTint="#29124E"
+        android:textStyle="bold"
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="16dp"
         android:layout_marginStart="16dp"
@@ -30,6 +38,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Durdur"
+        android:textStyle="bold"
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="16dp"
         android:layout_marginEnd="16dp"
@@ -41,6 +50,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Sayaç Modu"
+        android:textStyle="bold"
+        android:backgroundTint="#351F83"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="16dp"
