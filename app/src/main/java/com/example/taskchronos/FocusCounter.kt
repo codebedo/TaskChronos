@@ -4,14 +4,12 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.view.View
-import android.widget.Button
 import android.widget.TextView
 
 private lateinit var counterTextView: TextView
 private val handler = Handler()
 private var isCountingDown = true
 private var remainingTimeInMillis = 120 * 60 * 1000
-
 
 class FocusCounter : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -22,26 +20,30 @@ class FocusCounter : AppCompatActivity() {
         updateCounterText()
     }
 
-    private val countDown = Runnable {
-        if (isCountingDown) {
-            remainingTimeInMillis -= 1000
-            if (remainingTimeInMillis <= 0) {
-                remainingTimeInMillis = 0
-                isCountingDown = false
+    private val countDown = object : Runnable {
+        override fun run() {
+            if (isCountingDown) {
+                remainingTimeInMillis -= 1000
+                if (remainingTimeInMillis <= 0) {
+                    remainingTimeInMillis = 0
+                    isCountingDown = false
+                }
+                updateCounterText()
+                handler.postDelayed(this, 1000)
             }
-            updateCounterText()
-            handler.postDelayed(this, 1000)
         }
     }
 
-    private val countUp = Runnable {
-        if (!isCountingDown) {
-            remainingTimeInMillis += 1000
-            if (remainingTimeInMillis >= 120 * 60 * 1000) {
-                remainingTimeInMillis = 120 * 60 * 1000
+    private val countUp = object : Runnable {
+        override fun run() {
+            if (!isCountingDown) {
+                remainingTimeInMillis += 1000
+                if (remainingTimeInMillis >= 120 * 60 * 1000) {
+                    remainingTimeInMillis = 120 * 60 * 1000
+                }
+                updateCounterText()
+                handler.postDelayed(this, 1000)
             }
-            updateCounterText()
-            handler.postDelayed(this, 1000)
         }
     }
 
@@ -59,7 +61,7 @@ class FocusCounter : AppCompatActivity() {
     }
 
     fun toggleCountingMode(view: View) {
-        isCountingDown =!isCountingDown
+        isCountingDown = !isCountingDown
         if (isCountingDown) {
             remainingTimeInMillis = 120 * 60 * 1000
         } else {
@@ -74,9 +76,4 @@ class FocusCounter : AppCompatActivity() {
         val timeText = String.format("%02d:%02d", minutes, seconds)
         counterTextView.text = timeText
     }
-
-}
-
-private fun Handler.postDelayed(focusCounter: FocusCounter, l: Long) {
-
 }
