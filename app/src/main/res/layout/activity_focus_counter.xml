@@ -58,4 +58,14 @@
         android:layout_marginBottom="16dp"
         android:onClick="toggleCountingMode" />
 
+    <Button
+        android:id="@+id/reset_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sıfırla"
+        android:layout_below="@id/counter_text_view"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
+        android:onClick="resetCounter" />
+
 </RelativeLayout>
