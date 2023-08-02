@@ -16,6 +16,7 @@ private var remainingTimeInMillis = 120 * 60 * 1000
 
 
 class FocusCounter : AppCompatActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_focus_counter)
@@ -54,13 +55,18 @@ class FocusCounter : AppCompatActivity() {
     }
 
     fun startCounter(view: View) {
+        handler.removeCallbacks(countUp)
         if (isCountingDown) {
             handler.postDelayed(countDown, 1000)
             startButton.text = "Durdur" //Başlatma durumunda buton metnini "Durdur" olarak güncelliyoruz
         } else {
+            handler.removeCallbacks(countDown) // Sayaç durduğunda, geri sayımı durdurun
+            handler.removeCallbacks(countUp) // Sayaç durduğunda, sayımı durdurun
             handler.postDelayed(countUp, 1000)
             startButton.text = "Başla" // Durma durumunda buton metnini "Başla" olarak güncelliyoruz
         }
+        isCountingDown = !isCountingDown // Durumu tersine çeviriyoruz (Başlama -> Durdurma, Durdurma -> Başlama)
+
     }
 
     fun stopCounter(view: View) {
@@ -88,19 +94,22 @@ class FocusCounter : AppCompatActivity() {
     }
 
     fun resetCounter(view: View) {
+        handler.removeCallbacks(countDown) // Eğer sayaç çalışıyorsa durduralım
+        handler.removeCallbacks(countUp)
+
         isCountingDown = true // Sayaç varsayılan olarak geri sayıma başlasın
         remainingTimeInMillis = 120 * 60 * 1000 // Varsayılan süreyi 120 dakika olarak ayarlayalım
         updateCounterText()
 
-        handler.removeCallbacks(countDown) // Eğer sayaç çalışıyorsa durduralım
-        handler.removeCallbacks(countUp)
 
         if (isCountingDown) {
             handler.postDelayed(countDown, 1000) // Sayaç geri sayımı başlatalım
+            startButton.text = "Durdur" // Başlatma durumuna döndürerek sayaç başlasın
+
         } else {
+            startButton.text = "Başla" // Durma durumunda buton metnini "Başla" olarak güncelliyoruz
             handler.postDelayed(countUp, 1000) // Sayaç sayımı başlatalım
         }
 
-        startButton.text = "Durdur" // Başlatma durumuna döndürerek sayaç başlasın
     }
 }

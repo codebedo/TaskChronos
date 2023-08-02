@@ -34,17 +34,7 @@
         android:layout_marginStart="16dp"
         android:onClick="startCounter" />
 
-    <Button
-        android:id="@+id/stop_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Durdur"
-        android:textStyle="bold"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_alignParentEnd="true"
-        android:onClick="stopCounter" />
+
 
     <Button
         android:id="@+id/mode_button"
@@ -62,10 +52,13 @@
         android:id="@+id/reset_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Sıfırla"
         android:layout_below="@id/counter_text_view"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="16dp"
-        android:onClick="resetCounter" />
+        android:layout_alignStart="@+id/counter_text_view"
+        android:layout_alignEnd="@+id/counter_text_view"
+        android:layout_marginStart="196dp"
+        android:layout_marginTop="348dp"
+        android:layout_marginEnd="-71dp"
+        android:onClick="resetCounter"
+        android:text="Sıfırla" />
 
 </RelativeLayout>
