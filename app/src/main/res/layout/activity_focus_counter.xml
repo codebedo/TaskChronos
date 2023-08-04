@@ -1,4 +1,5 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -22,43 +23,41 @@
         android:textColor="@color/white"
         android:textSize="60sp" />
 
-    <Button
-        android:id="@+id/start_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Başla"
-        android:backgroundTint="#29124E"
-        android:textStyle="bold"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="16dp"
-        android:layout_marginStart="16dp"
-        android:onClick="startCounter" />
-
-
 
     <Button
         android:id="@+id/mode_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Sayaç Modu"
-        android:textStyle="bold"
-        android:backgroundTint="#351F83"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="16dp"
-        android:onClick="toggleCountingMode" />
+        android:backgroundTint="#351F83"
+        android:onClick="toggleCountingMode"
+        android:text="Mode"
+        android:textStyle="bold" />
 
-    <Button
-        android:id="@+id/reset_button"
+    <ImageView
+        android:id="@+id/start_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/counter_text_view"
+        android:layout_below="@+id/counter_text_view"
         android:layout_alignStart="@+id/counter_text_view"
+        android:layout_marginStart="-53dp"
+        android:layout_marginTop="351dp"
+        android:layout_marginEnd="47dp"
+        android:layout_toStartOf="@+id/mode_button"
+        app:srcCompat="@drawable/baseline_play_arrow_24" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/counter_text_view"
         android:layout_alignEnd="@+id/counter_text_view"
-        android:layout_marginStart="196dp"
-        android:layout_marginTop="348dp"
-        android:layout_marginEnd="-71dp"
-        android:onClick="resetCounter"
-        android:text="Sıfırla" />
+        android:layout_marginStart="43dp"
+        android:layout_marginTop="349dp"
+        android:layout_marginEnd="-50dp"
+        android:layout_toEndOf="@+id/mode_button"
+        app:srcCompat="@drawable/baseline_replay_24" />
 
 </RelativeLayout>

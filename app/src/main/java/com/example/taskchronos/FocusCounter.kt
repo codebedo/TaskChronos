@@ -33,7 +33,6 @@ class FocusCounter : AppCompatActivity() {
                 if (remainingTimeInMillis <= 0) {
                     remainingTimeInMillis = 0
                     isCountingDown = false
-                    startButton.text = "Başla" // Durma durumunda buton metnini "Başla" olarak güncelliyoruz
                 }
                 updateCounterText()
                 handler.postDelayed(this, 1000)
@@ -58,12 +57,10 @@ class FocusCounter : AppCompatActivity() {
         handler.removeCallbacks(countUp)
         if (isCountingDown) {
             handler.postDelayed(countDown, 1000)
-            startButton.text = "Durdur" //Başlatma durumunda buton metnini "Durdur" olarak güncelliyoruz
         } else {
             handler.removeCallbacks(countDown) // Sayaç durduğunda, geri sayımı durdurun
             handler.removeCallbacks(countUp) // Sayaç durduğunda, sayımı durdurun
             handler.postDelayed(countUp, 1000)
-            startButton.text = "Başla" // Durma durumunda buton metnini "Başla" olarak güncelliyoruz
         }
         isCountingDown = !isCountingDown // Durumu tersine çeviriyoruz (Başlama -> Durdurma, Durdurma -> Başlama)
 
@@ -72,7 +69,6 @@ class FocusCounter : AppCompatActivity() {
     fun stopCounter(view: View) {
         handler.removeCallbacks(countDown)
         handler.removeCallbacks(countUp)
-        startButton.text = "Başla" // Durdurma durumunda buton metnini "Başla" olarak güncelliyoruz
     }
 
     fun toggleCountingMode(view: View) {
@@ -83,7 +79,7 @@ class FocusCounter : AppCompatActivity() {
             remainingTimeInMillis = 0
         }
         updateCounterText()
-        startButton.text = if (isCountingDown) "Başla" else "Durdur" // Sayacı değiştirme durumunda buton metnini uygun bir şekilde güncelliyoruz
+       // startButton.text = if (isCountingDown) "Başla" else "Durdur" // Sayacı değiştirme durumunda buton metnini uygun bir şekilde güncelliyoruz
     }
 
     private fun updateCounterText() {
@@ -104,10 +100,10 @@ class FocusCounter : AppCompatActivity() {
 
         if (isCountingDown) {
             handler.postDelayed(countDown, 1000) // Sayaç geri sayımı başlatalım
-            startButton.text = "Durdur" // Başlatma durumuna döndürerek sayaç başlasın
+           // startButton.text = "Durdur" // Başlatma durumuna döndürerek sayaç başlasın
 
         } else {
-            startButton.text = "Başla" // Durma durumunda buton metnini "Başla" olarak güncelliyoruz
+            //startButton.text = "Başla" // Durma durumunda buton metnini "Başla" olarak güncelliyoruz
             handler.postDelayed(countUp, 1000) // Sayaç sayımı başlatalım
         }
 
