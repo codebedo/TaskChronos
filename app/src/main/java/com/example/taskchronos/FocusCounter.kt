@@ -67,7 +67,7 @@ class FocusCounter : AppCompatActivity() {
     }
 
     // ... Diğer işlevler burada yer alır
-
+/*
     private fun updateCounterText() {
         val minutes = (remainingTimeInMillis / (1000 * 60)).toInt()
         val seconds = (remainingTimeInMillis / 1000) % 60
@@ -79,5 +79,7 @@ class FocusCounter : AppCompatActivity() {
         super.onDestroy()
         stopCounter()
     }
+    */
+
 }
 
