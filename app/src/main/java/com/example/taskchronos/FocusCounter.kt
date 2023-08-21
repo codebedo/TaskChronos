@@ -80,6 +80,7 @@ class FocusCounter : AppCompatActivity() {
         }
         updateCounterText()
        // startButton.text = if (isCountingDown) "Başla" else "Durdur" // Sayacı değiştirme durumunda buton metnini uygun bir şekilde güncelliyoruz
+        startButton.layout = if (isCountingDown) startButton else  counterTextView
     }
 
     private fun updateCounterText() {
